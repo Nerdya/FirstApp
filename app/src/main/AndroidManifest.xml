@@ -30,6 +30,15 @@
         <activity
             android:name=".CountryListActivity">
         </activity>
+        <activity
+            android:name=".DemoIntentCurrentActivity">
+        </activity>
+        <activity
+            android:name=".DemoIntentFirstNextActivity">
+        </activity>
+        <activity
+            android:name=".DemoIntentSecondNextActivity">
+        </activity>
     </application>
 
 </manifest>
