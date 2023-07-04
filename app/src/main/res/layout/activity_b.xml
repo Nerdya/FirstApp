@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Giải PT bậc 2"
+        android:text="Activity B"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -81,13 +81,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextB" />
 
             <Button
-                android:id="@+id/buttonSolve"
+                android:id="@+id/buttonFindMaxMin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
-                android:text="Giải"
+                android:text="Giải PT ax^2 + bx + c = 0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +149,7 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonSolve" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonFindMaxMin" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

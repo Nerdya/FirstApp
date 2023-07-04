@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Tính tổng"
+        android:text="Activity A"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -81,30 +81,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextB" />
 
             <Button
-                android:id="@+id/buttonSolve"
+                android:id="@+id/buttonSendToB"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
-                android:text="Tính"
+                android:text="Activity B: Giải PT ax^2 + bx + c = 0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextC" />
 
             <Button
-                android:id="@+id/buttonReturnResult"
+                android:id="@+id/buttonSendToC"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="184dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
-                android:text="Gửi lại kết quả"
+                android:text="Activity C: Tìm max, min của a, b, c"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextC" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonSendToB" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="44dp"
-                android:text="a"
+                android:text="Nhập a"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="48dp"
-                android:text="b"
+                android:text="Nhập b"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -132,24 +132,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="48dp"
-                android:text="c"
+                android:text="Nhập c"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-            <EditText
-                android:id="@+id/editTextResult"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="textMultiLine"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonSolve" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

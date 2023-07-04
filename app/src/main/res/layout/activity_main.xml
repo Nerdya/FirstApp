@@ -21,12 +21,12 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Màn hình chính"
+        android:text="DANH SÁCH CÔNG VIỆC"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
@@ -35,8 +35,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -45,43 +47,51 @@
 
 
             <Button
-                android:id="@+id/buttonSolveEquation"
-                android:layout_width="0dp"
+                android:id="@+id/buttonExecute"
+                android:layout_width="128dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:text="Giải phương trình bậc 2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="360dp"
+                android:text="Thực hiện"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/buttonCountryList"
-                android:layout_width="0dp"
+                android:id="@+id/buttonExitActivity"
+                android:layout_width="112dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:text="Danh sách quốc gia"
+                android:layout_marginTop="360dp"
+                android:layout_marginEnd="64dp"
+                android:text="Thoát"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonSolveEquation" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/buttonDemoIntent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:text="Demo Intent"
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="192dp"
+                android:layout_marginTop="96dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonCountryList" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonEx1"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Bài toán 1" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonEx2"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Bài toán 2" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonEx3"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Bài toán 3" />
+            </RadioGroup>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

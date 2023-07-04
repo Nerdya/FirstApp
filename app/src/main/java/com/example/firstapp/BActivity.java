@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DemoIntentSecondNextActivity extends AppCompatActivity {
+public class BActivity extends AppCompatActivity {
     EditText editTextA;
     EditText editTextB;
     EditText editTextC;
@@ -19,14 +19,14 @@ public class DemoIntentSecondNextActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demo_intent_second_next);
+        setContentView(R.layout.activity_b);
 
         // Ánh xạ
         editTextA = findViewById(R.id.editTextA);
         editTextB = findViewById(R.id.editTextB);
         editTextC = findViewById(R.id.editTextC);
         editTextResult = findViewById(R.id.editTextResult);
-        buttonSolve = findViewById(R.id.buttonSolve);
+        buttonSolve = findViewById(R.id.buttonFindMaxMin);
         buttonReturnResult = findViewById(R.id.buttonReturnResult);
 
         Intent intent = getIntent();
@@ -37,23 +37,23 @@ public class DemoIntentSecondNextActivity extends AppCompatActivity {
         editTextB.setText(String.valueOf(b));
         editTextC.setText(String.valueOf(c));
 
-        buttonSolve.setOnClickListener(view -> sum());
+        buttonSolve.setOnClickListener(view -> solve());
         buttonReturnResult.setOnClickListener(view -> returnResult());
     }
 
-    private void sum() {
-        int a = Integer.parseInt(String.valueOf(editTextA.getText()));
-        int b = Integer.parseInt(String.valueOf(editTextB.getText()));
-        int c = Integer.parseInt(String.valueOf(editTextC.getText()));
+    private void solve() {
+        int a = Integer.parseInt(editTextA.getText().toString());
+        int b = Integer.parseInt(editTextB.getText().toString());
+        int c = Integer.parseInt(editTextC.getText().toString());
         String result = solveQuadraticEquation(a, b, c);
         editTextResult.setText(result);
     }
 
     private void returnResult() {
-        if (!editTextResult.getText().toString().equals("")) {
-            Intent intent = new Intent(DemoIntentSecondNextActivity.this, DemoIntentCurrentActivity.class);
-            String result = editTextResult.getText().toString();
-            intent.putExtra("result", result);
+        String textResult = editTextResult.getText().toString();
+        if (!textResult.equals("")) {
+            Intent intent = new Intent(BActivity.this, AActivity.class);
+            intent.putExtra("result", textResult);
             setResult(RESULT_OK, intent);
             finish();
         } else {

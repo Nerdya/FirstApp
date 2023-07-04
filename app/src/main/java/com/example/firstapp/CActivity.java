@@ -8,26 +8,25 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DemoIntentFirstNextActivity extends AppCompatActivity {
+public class CActivity extends AppCompatActivity {
     EditText editTextA;
     EditText editTextB;
     EditText editTextC;
     EditText editTextResult;
-    Button buttonSum;
+    Button buttonFindMaxMin;
     Button buttonReturnResult;
-    int result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demo_intent_first_next);
+        setContentView(R.layout.activity_c);
 
         // Ánh xạ
         editTextA = findViewById(R.id.editTextA);
         editTextB = findViewById(R.id.editTextB);
         editTextC = findViewById(R.id.editTextC);
         editTextResult = findViewById(R.id.editTextResult);
-        buttonSum = findViewById(R.id.buttonSolve);
+        buttonFindMaxMin = findViewById(R.id.buttonFindMaxMin);
         buttonReturnResult = findViewById(R.id.buttonReturnResult);
 
         Intent intent = getIntent();
@@ -38,25 +37,25 @@ public class DemoIntentFirstNextActivity extends AppCompatActivity {
         editTextB.setText(String.valueOf(b));
         editTextC.setText(String.valueOf(c));
 
-        buttonSum.setOnClickListener(view -> sum());
+        buttonFindMaxMin.setOnClickListener(view -> findMaxMin());
         buttonReturnResult.setOnClickListener(view -> returnResult());
     }
 
-    private void sum() {
-        int a = Integer.parseInt(String.valueOf(editTextA.getText()));
-        int b = Integer.parseInt(String.valueOf(editTextB.getText()));
-        int c = Integer.parseInt(String.valueOf(editTextC.getText()));
-        result = a + b + c;
-        String resultText = "Tổng: " + result;
-        editTextResult.setText(resultText);
+    private void findMaxMin() {
+        int a = Integer.parseInt(editTextA.getText().toString());
+        int b = Integer.parseInt(editTextB.getText().toString());
+        int c = Integer.parseInt(editTextC.getText().toString());
+        int maxValue = Math.max(Math.max(a, b), c);
+        int minValue = Math.min(Math.min(a, b), c);
+        String result = "Max: " + maxValue + "\nMin: " + minValue;
+        editTextResult.setText(result);
     }
 
     private void returnResult() {
-        if (!editTextResult.getText().toString().equals("")) {
-            Intent intent = new Intent(DemoIntentFirstNextActivity.this, DemoIntentCurrentActivity.class);
-//            int result = Integer.parseInt(editTextResult.getText().toString());
-//            intent.putExtra("result", result);
-            intent.putExtra("result", result);
+        String textResult = editTextResult.getText().toString();
+        if (!textResult.equals("")) {
+            Intent intent = new Intent(CActivity.this, AActivity.class);
+            intent.putExtra("result", textResult);
             setResult(RESULT_OK, intent);
             finish();
         } else {

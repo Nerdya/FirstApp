@@ -6,38 +6,45 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonSolveEquation;
-    Button buttonCountryList;
-    Button buttonDemoIntent;
+    RadioButton radioButtonEx1;
+    RadioButton radioButtonEx2;
+    RadioButton radioButtonEx3;
+    Button buttonExecute;
+    Button buttonExitActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonSolveEquation = findViewById(R.id.buttonSolveEquation);
-        buttonCountryList = findViewById(R.id.buttonCountryList);
-        buttonDemoIntent = findViewById(R.id.buttonDemoIntent);
+        radioButtonEx1 = findViewById(R.id.radioButtonEx1);
+        radioButtonEx2 = findViewById(R.id.radioButtonEx2);
+        radioButtonEx3 = findViewById(R.id.radioButtonEx3);
+        buttonExecute = findViewById(R.id.buttonExecute);
+        buttonExitActivity = findViewById(R.id.buttonExitActivity);
 
-        buttonSolveEquation.setOnClickListener(this::openSolveEquationActivity);
-        buttonCountryList.setOnClickListener(this::openCountryListActivity);
-        buttonDemoIntent.setOnClickListener(this::openDemoIntentActivity);
+        buttonExecute.setOnClickListener(this::execute);
+        buttonExitActivity.setOnClickListener(this::exitActivity);
     }
 
-    public void openSolveEquationActivity(View view) {
-        Intent intent = new Intent(this, SolveEquationActivity.class);
-        startActivity(intent);
+    public void execute(View view) {
+        if (radioButtonEx1.isChecked() || radioButtonEx2.isChecked() || radioButtonEx3.isChecked()) {
+            if (radioButtonEx1.isChecked()) {
+                Intent intent = new Intent(this, AActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Chưa có chức năng", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Chưa chọn bài toán!", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void openCountryListActivity(View view) {
-        Intent intent = new Intent(this, CountryListActivity.class);
-        startActivity(intent);
-    }
-
-    public void openDemoIntentActivity(View view) {
-        Intent intent = new Intent(this, DemoIntentCurrentActivity.class);
-        startActivity(intent);
+    public void exitActivity(View view) {
+        finish();
     }
 }

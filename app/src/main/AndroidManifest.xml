@@ -25,19 +25,13 @@
             android:name=".MainActivity">
         </activity>
         <activity
-            android:name=".SolveEquationActivity">
+            android:name=".AActivity">
         </activity>
         <activity
-            android:name=".CountryListActivity">
+            android:name=".CActivity">
         </activity>
         <activity
-            android:name=".DemoIntentCurrentActivity">
-        </activity>
-        <activity
-            android:name=".DemoIntentFirstNextActivity">
-        </activity>
-        <activity
-            android:name=".DemoIntentSecondNextActivity">
+            android:name=".BActivity">
         </activity>
     </application>
 
