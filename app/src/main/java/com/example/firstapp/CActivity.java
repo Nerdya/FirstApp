@@ -1,5 +1,6 @@
 package com.example.firstapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -61,5 +62,18 @@ public class CActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Không có kết quả để gửi lại", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Prepare the result data to send back to Activity A
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("result", "User uses back button");
+
+        // Set the result code and data
+        setResult(Activity.RESULT_CANCELED, resultIntent);
+
+        // Call finish to close Activity C and return to Activity A
+        finish();
     }
 }

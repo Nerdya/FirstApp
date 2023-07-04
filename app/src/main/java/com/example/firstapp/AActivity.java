@@ -17,6 +17,7 @@ public class AActivity extends AppCompatActivity {
     EditText editTextC;
     Button buttonSendToB;
     Button buttonSendToC;
+    EditText editTextResultRetrieved;
     private ActivityResultLauncher<Intent> sendToBLauncher;
     private ActivityResultLauncher<Intent> sendToCLauncher;
 
@@ -29,22 +30,24 @@ public class AActivity extends AppCompatActivity {
         sendToBLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        String textResult = data.getStringExtra("result");
-                        Toast.makeText(this, textResult, Toast.LENGTH_LONG).show();
-                    }
+                    int resultCode = result.getResultCode();
+                    Intent data = result.getData();
+                    String textResult = "Activity B, resultCode: " + resultCode + "\n" +
+                            "data: " + data.getStringExtra("result");
+                    editTextResultRetrieved.setText(textResult);
+//                    Toast.makeText(this, textResult, Toast.LENGTH_LONG).show();
                 }
         );
 
         sendToCLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        String textResult = data.getStringExtra("result");
-                        Toast.makeText(this, textResult, Toast.LENGTH_LONG).show();
-                    }
+                    int resultCode = result.getResultCode();
+                    Intent data = result.getData();
+                    String textResult = "Activity C, resultCode: " + resultCode + "\n" +
+                            "data: " + data.getStringExtra("result");
+                    editTextResultRetrieved.setText(textResult);
+//                    Toast.makeText(this, textResult, Toast.LENGTH_LONG).show();
                 }
         );
 
@@ -54,6 +57,7 @@ public class AActivity extends AppCompatActivity {
         editTextC = findViewById(R.id.editTextC);
         buttonSendToB = findViewById(R.id.buttonSendToB);
         buttonSendToC = findViewById(R.id.buttonSendToC);
+        editTextResultRetrieved = findViewById(R.id.editTextResultRetrieved);
 
         buttonSendToB.setOnClickListener(view -> sendToB());
         buttonSendToC.setOnClickListener(view -> sendToC());

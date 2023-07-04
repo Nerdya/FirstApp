@@ -1,5 +1,6 @@
 package com.example.firstapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -94,5 +95,18 @@ public class BActivity extends AppCompatActivity {
                 return "PT vô nghiệm.";
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Prepare the result data to send back to Activity A
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("result", "User uses back button");
+
+        // Set the result code and data
+        setResult(Activity.RESULT_CANCELED, resultIntent);
+
+        // Call finish to close Activity B and return to Activity A
+        finish();
     }
 }
