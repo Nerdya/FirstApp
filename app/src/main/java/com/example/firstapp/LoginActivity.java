@@ -13,6 +13,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextUsername;
     EditText editTextPassword;
     Button buttonLogin;
+    Button buttonExit;
+    String username = "admin";
+    String password = "admin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,20 +26,29 @@ public class LoginActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-        buttonLogin.setOnClickListener(view -> {
-//            Log.i("username", String.valueOf(editTextUsername.getText()));
-//            Log.i("password", String.valueOf(editTextPassword.getText()))
-            boolean valid = String.valueOf(editTextUsername.getText()).equals("username") &&
-                    String.valueOf(editTextPassword.getText()).equals("password");
-            if (valid) {
-                Toast.makeText(LoginActivity.this, "Đăng nhập thành công",
-                        Toast.LENGTH_SHORT).show();
+        buttonExit = findViewById(R.id.buttonExit);
+
+        buttonLogin.setOnClickListener(this::login);
+        buttonExit.setOnClickListener(this::exit);
+    }
+
+    private void login(View view) {
+        String textUsername = editTextUsername.getText().toString();
+        String textPassword = editTextPassword.getText().toString();
+        if (!textUsername.equals("") && !textPassword.equals("")) {
+            if (textUsername.equals(username) && textPassword.equals(password)) {
+                Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                 openMainActivity(view);
             } else {
-                Toast.makeText(LoginActivity.this, "Username hoặc password không đúng",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Username hoặc password không đúng", Toast.LENGTH_SHORT).show();
             }
-        });
+        } else {
+            Toast.makeText(this, "Nhập đầy đủ username và password", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void exit(View view) {
+        finish();
     }
 
     public void openMainActivity(View view) {
